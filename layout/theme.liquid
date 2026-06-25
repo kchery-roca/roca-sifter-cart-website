@@ -384,8 +384,10 @@
     <script>
       window.location.href = '/products/roca-card-sifter'
 
-      console.log('{{ product.metafields.global.roca_sifter.value | json }}');
     </script>
   {% endif %}
 
+  <script>
+    console.log('{{ shop.metafields.global.subscription_variant_id.value }}');
+  </script>
 </html>
