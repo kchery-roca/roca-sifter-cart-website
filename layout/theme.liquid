@@ -383,6 +383,8 @@
   {%  if template == 'index' or product.handle == shop.metafields.global.subscription_variant_id.value.handle %}
     <script>
       window.location.href = '/products/roca-card-sifter'
+
+      console.log('{{ product.metafields.global.roca_sifter.value }}');
     </script>
   {% endif %}
 
