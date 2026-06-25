@@ -388,6 +388,6 @@
   {% endif %}
 
   <script>
-    console.log('{{ shop.metafields.global.subscription_variant_id.value }}');
+    console.log('{{ shop.metafields.global.subscription_variant_id.handle.value | json }}');
   </script>
 </html>
