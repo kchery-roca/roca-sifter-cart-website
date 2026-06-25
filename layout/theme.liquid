@@ -388,6 +388,7 @@
   {% endif %}
 
   <script>
-    console.log('{{ shop.metafields.global.subscription_variant_id.value | json }}');
+    const subscriptionVariant = {{ shop.metafields.global.subscription_variant_id.value | json }};
+    console.log(subscriptionVariant);
   </script>
 </html>
