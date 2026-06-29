@@ -31927,7 +31927,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
       setValidationError(null);
     },
     className: validationError && !isTCGPlayer ? 'tw-outline-none' : ''
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Hello"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "isTCGPlayer",
     className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
   }, "I acknowledge that I am required to have a", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
