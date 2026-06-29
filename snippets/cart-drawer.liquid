@@ -569,6 +569,13 @@
         <!-- Subtotals -->
 
         <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
+
+          <div>
+            <span class="tw-text-xs tw-font-normal tw-tracking-none tw-leading-[125%]">
+              Please use the email linked to your TCGplayer seller account for a smooth setup experience with Roca Sifter
+            </span>
+          </div>
+          
           <div>
             {%- if cart.cart_level_discount_applications.size > 0 -%}
               <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
@@ -588,11 +595,6 @@
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
 
-          <div>
-            <span class="tw-text-xs tw-font-normal tw-tracking-none tw-leading-[125%]">
-              Please use the email linked to your TCGplayer seller account for a smooth setup experience with Roca Sifter
-            </span>
-          </div>
           <small class="tax-note caption-large rte">
             {%- if cart.duties_included and cart.taxes_included -%}
               {%- if shop.shipping_policy.body == blank -%}
