@@ -544,7 +544,7 @@
           <div id="CartDrawer-CartErrors" role="alert"></div>
         </form>
       </cart-drawer-items>
-      <div class="drawer__footer">
+      <div class="drawer__footer tw-py-1">
         {%- if settings.show_cart_note -%}
           <details id="Details-CartDrawer">
             <summary>
@@ -569,6 +569,14 @@
         <!-- Subtotals -->
 
         <div class="cart-drawer__footer" {{ block.shopify_attributes }}>
+
+          <div>
+            <span class="tw-text-xs tw-font-normal tw-tracking-none tw-leading-[125%]">
+              Please use the email linked to your TCGplayer seller account for a smooth setup experience with Roca Sifter
+            </span>
+          </div>
+          
+          <hr class="tw-mb-2" />
           <div>
             {%- if cart.cart_level_discount_applications.size > 0 -%}
               <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">

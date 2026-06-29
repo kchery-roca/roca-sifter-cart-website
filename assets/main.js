@@ -31916,6 +31916,8 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     href: "#",
     onClick: openZendeskChat
   }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "tw-mb-2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", null, "Please use the email linked to your TCGplayer seller account for a smooth setup experience with Roca Sifter")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: validationError && !isTCGPlayer ? 'tw-inline-flex tw-ring-2 tw-ring-red-500 tw-ring-offset-0 tw-rounded' : 'tw-inline-flex'

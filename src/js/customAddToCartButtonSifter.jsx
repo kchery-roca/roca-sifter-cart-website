@@ -254,6 +254,13 @@ const CustomAddToCartButtonSifter = () => {
         </a>
       </p>
 
+      <div className="tw-mb-2">
+        <span>
+          Please use the email linked to your TCGplayer seller account for a smooth setup experience
+          with Roca Sifter
+        </span>
+      </div>
+
       <div className="tw-flex tw-items-center tw-gap-2">
         <span
           className={
@@ -272,6 +279,7 @@ const CustomAddToCartButtonSifter = () => {
             className={validationError && !isTCGPlayer ? 'tw-outline-none' : ''}
           />
         </span>
+
         <label htmlFor="isTCGPlayer" className="tw-text-base tw-font-[400] tw-tracking-[0.16px]">
           I acknowledge that I am required to have a
           <a
