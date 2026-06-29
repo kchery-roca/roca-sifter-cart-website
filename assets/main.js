@@ -31915,7 +31915,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
   }, "Have questions?"), ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "#",
     onClick: openZendeskChat
-  }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "Contact Us")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Hello")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: validationError && !isTCGPlayer ? 'tw-inline-flex tw-ring-2 tw-ring-red-500 tw-ring-offset-0 tw-rounded' : 'tw-inline-flex'
@@ -31927,7 +31927,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
       setValidationError(null);
     },
     className: validationError && !isTCGPlayer ? 'tw-outline-none' : ''
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Hello"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("label", {
     htmlFor: "isTCGPlayer",
     className: "tw-text-base tw-font-[400] tw-tracking-[0.16px]"
   }, "I acknowledge that I am required to have a", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
