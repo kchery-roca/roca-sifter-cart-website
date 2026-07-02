@@ -387,7 +387,8 @@
   {% endif %}
 
   <script>
-    console.log('{{ shop.metafields.global.subscription_variant_id.value | json   }}' + 'KRIS TEST');
+    window.subscriptionProduct = {{ shop.metafields.global.subscription_variant_id.value | json }};
+    console.log('KRIS TEST', window.subscriptionProduct);
   </script>
 
 </html>
