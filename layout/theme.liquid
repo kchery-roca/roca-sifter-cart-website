@@ -305,6 +305,8 @@
 
   <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
 
+
+
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ 'accessibility.skip_to_text' | t }}
     </a>
@@ -379,11 +381,40 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
   </body>
-
-  {%  if template == 'index' or product.handle == shop.metafields.global.subscription_variant_id.value.handle %}
-    <script>
-      window.location.href = '/products/roca-card-sifter'
-    </script>
-  {% endif %}
+    {% if product.handle == 'roca-sifter-copy' %}
+      {%- assign roca_gate_hash = 'SifterPurchaseTesting2026!' | sha256 -%}
+      <style>
+        html.roca-gate-locked
+          body
+          > *:not(#product-password-gate):not(#headlessui-portal-root):not([data-headlessui-portal]) {
+          display: none !important;
+        }
+      </style>
+      <div
+        id="product-password-gate"
+        data-pw-hash="{{ roca_gate_hash }}"
+        data-cookie-name="roca_sifter_copy_auth"
+      ></div>
+      <script>
+        (function () {
+          var cookie = document.cookie
+            .split('; ')
+            .find(function (row) {
+              return row.indexOf('roca_sifter_copy_auth=') === 0;
+            });
+          var value = cookie ? cookie.split('=')[1] : '';
+          if (value !== '{{ roca_gate_hash }}') {
+            document.documentElement.classList.add('roca-gate-locked');
+          }
+        })();
+      </script>
+    {% endif %}
+  {% unless product.handle == 'roca-sifter-copy' %}
+    {% if template == 'index' or product.handle == shop.metafields.global.subscription_variant_id.value.handle %}
+      <script>
+        window.location.href = '/products/roca-sifter'
+      </script>
+    {% endif %}
+  {% endunless %}
 
 </html>

@@ -11,17 +11,24 @@ export const sha256 = async (message) => {
   return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
 };
 
-export const getAuthCookie = () =>
+export const getAuthCookie = (name = COOKIE_NAME) =>
   document.cookie
     .split('; ')
-    .find((row) => row.startsWith(`${COOKIE_NAME}=`))
+    .find((row) => row.startsWith(`${name}=`))
     ?.split('=')[1];
 
-export const setAuthCookie = (hash) => {
-  document.cookie = `${COOKIE_NAME}=${hash}; max-age=${COOKIE_MAX_AGE}; SameSite=Strict; Secure; path=/`;
+export const setAuthCookie = (hash, name = COOKIE_NAME) => {
+  document.cookie = `${name}=${hash}; max-age=${COOKIE_MAX_AGE}; SameSite=Strict; Secure; path=/`;
 };
 
-const DashboardPasswordModal = ({ isOpen, expectedHash, onSuccess }) => {
+const DashboardPasswordModal = ({
+  isOpen,
+  expectedHash,
+  onSuccess,
+  cookieName = COOKIE_NAME,
+  title = 'Dashboard Access',
+  description = 'Enter the password to view Sifter analytics.',
+}) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [isChecking, setIsChecking] = useState(false);
@@ -39,7 +46,7 @@ const DashboardPasswordModal = ({ isOpen, expectedHash, onSuccess }) => {
     try {
       const hash = await sha256(password);
       if (hash === expectedHash) {
-        setAuthCookie(hash);
+        setAuthCookie(hash, cookieName);
         onSuccess();
       } else {
         setError(true);
@@ -83,11 +90,11 @@ const DashboardPasswordModal = ({ isOpen, expectedHash, onSuccess }) => {
           </div>
 
           <Dialog.Title className="tw-text-xl tw-leading-[157%] tw-tracking-[-0.16px] tw-font-bold tw-mb-1 tw-text-center">
-            Dashboard Access
+            {title}
           </Dialog.Title>
 
           <p className="tw-text-sm tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-6 tw-text-center tw-text-gray-400">
-            Enter the password to view Sifter analytics.
+            {description}
           </p>
 
           <form onSubmit={handleSubmit} className="tw-flex tw-flex-col tw-gap-3">

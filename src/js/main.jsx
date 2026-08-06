@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import CustomAddToCartButtonSifter from './customAddToCartButtonSifter';
+import ProductPasswordGate from './productPasswordGate';
 import SifterDashboard from './sifterDashBoard';
 
 function App() {
@@ -16,5 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const el2 = document.getElementById('sifter-dashboard');
   if (el2) {
     createRoot(el2).render(<SifterDashboard />);
+  }
+
+  const gateEl = document.getElementById('product-password-gate');
+  if (gateEl) {
+    createRoot(gateEl).render(<ProductPasswordGate />);
   }
 });

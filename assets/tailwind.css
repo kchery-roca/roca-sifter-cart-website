@@ -285,6 +285,10 @@
     padding-left: 16px;
     padding-right: 16px
 }
+.tw-py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem
+}
 .tw-py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem
@@ -304,10 +308,6 @@
 .tw-py-\[8rem\] {
     padding-top: 8rem;
     padding-bottom: 8rem
-}
-.tw-py-1 {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem
 }
 .\!tw-pb-0 {
     padding-bottom: 0px !important

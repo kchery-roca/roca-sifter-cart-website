@@ -32073,17 +32073,25 @@ var sha256 = /*#__PURE__*/function () {
 }();
 var getAuthCookie = function getAuthCookie() {
   var _document$cookie$spli;
+  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : COOKIE_NAME;
   return (_document$cookie$spli = document.cookie.split('; ').find(function (row) {
-    return row.startsWith("".concat(COOKIE_NAME, "="));
+    return row.startsWith("".concat(name, "="));
   })) === null || _document$cookie$spli === void 0 ? void 0 : _document$cookie$spli.split('=')[1];
 };
 var setAuthCookie = function setAuthCookie(hash) {
-  document.cookie = "".concat(COOKIE_NAME, "=").concat(hash, "; max-age=").concat(COOKIE_MAX_AGE, "; SameSite=Strict; Secure; path=/");
+  var name = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : COOKIE_NAME;
+  document.cookie = "".concat(name, "=").concat(hash, "; max-age=").concat(COOKIE_MAX_AGE, "; SameSite=Strict; Secure; path=/");
 };
 var DashboardPasswordModal = function DashboardPasswordModal(_ref2) {
   var isOpen = _ref2.isOpen,
     expectedHash = _ref2.expectedHash,
-    onSuccess = _ref2.onSuccess;
+    onSuccess = _ref2.onSuccess,
+    _ref2$cookieName = _ref2.cookieName,
+    cookieName = _ref2$cookieName === void 0 ? COOKIE_NAME : _ref2$cookieName,
+    _ref2$title = _ref2.title,
+    title = _ref2$title === void 0 ? 'Dashboard Access' : _ref2$title,
+    _ref2$description = _ref2.description,
+    description = _ref2$description === void 0 ? 'Enter the password to view Sifter analytics.' : _ref2$description;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
     _useState2 = _slicedToArray(_useState, 2),
     password = _useState2[0],
@@ -32124,7 +32132,7 @@ var DashboardPasswordModal = function DashboardPasswordModal(_ref2) {
           case 3:
             hash = _context2.v;
             if (hash === expectedHash) {
-              setAuthCookie(hash);
+              setAuthCookie(hash, cookieName);
               onSuccess();
             } else {
               setError(true);
@@ -32187,9 +32195,9 @@ var DashboardPasswordModal = function DashboardPasswordModal(_ref2) {
     d: "M7 11V7a5 5 0 0 1 10 0v4"
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_headlessui_react__WEBPACK_IMPORTED_MODULE_0__.Dialog.Title, {
     className: "tw-text-xl tw-leading-[157%] tw-tracking-[-0.16px] tw-font-bold tw-mb-1 tw-text-center"
-  }, "Dashboard Access"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
+  }, title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("p", {
     className: "tw-text-sm tw-leading-[157%] tw-tracking-[-0.16px] tw-mb-6 tw-text-center tw-text-gray-400"
-  }, "Enter the password to view Sifter analytics."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("form", {
+  }, description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("form", {
     onSubmit: handleSubmit,
     className: "tw-flex tw-flex-col tw-gap-3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement("input", {
@@ -32407,6 +32415,60 @@ var OrderConstraintModal = function OrderConstraintModal(_ref) {
   }, "Contact Sales")))));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrderConstraintModal);
+
+/***/ },
+
+/***/ "./src/js/productPasswordGate.jsx"
+/*!****************************************!*\
+  !*** ./src/js/productPasswordGate.jsx ***!
+  \****************************************/
+(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _dashboardPasswordModal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dashboardPasswordModal */ "./src/js/dashboardPasswordModal.jsx");
+var _mountEl$dataset, _mountEl$dataset2;
+function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+
+
+var LOCKED_CLASS = 'roca-gate-locked';
+var _mountEl = document.getElementById('product-password-gate');
+var EXPECTED_HASH = (_mountEl === null || _mountEl === void 0 || (_mountEl$dataset = _mountEl.dataset) === null || _mountEl$dataset === void 0 ? void 0 : _mountEl$dataset.pwHash) || '';
+var COOKIE_NAME = (_mountEl === null || _mountEl === void 0 || (_mountEl$dataset2 = _mountEl.dataset) === null || _mountEl$dataset2 === void 0 ? void 0 : _mountEl$dataset2.cookieName) || 'roca_sifter_copy_auth';
+var ProductPasswordGate = function ProductPasswordGate() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(function () {
+      var cookie = (0,_dashboardPasswordModal__WEBPACK_IMPORTED_MODULE_1__.getAuthCookie)(COOKIE_NAME);
+      return Boolean(cookie && EXPECTED_HASH && cookie === EXPECTED_HASH);
+    }),
+    _useState2 = _slicedToArray(_useState, 2),
+    isAuthenticated = _useState2[0],
+    setIsAuthenticated = _useState2[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (isAuthenticated) document.documentElement.classList.remove(LOCKED_CLASS);
+  }, [isAuthenticated]);
+  var handleSuccess = function handleSuccess() {
+    return setIsAuthenticated(true);
+  };
+  if (isAuthenticated) return null;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_dashboardPasswordModal__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    isOpen: true,
+    expectedHash: EXPECTED_HASH,
+    onSuccess: handleSuccess,
+    cookieName: COOKIE_NAME,
+    title: "Restricted Page",
+    description: "Enter the password to view this page."
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductPasswordGate);
 
 /***/ },
 
@@ -33073,7 +33135,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _customAddToCartButtonSifter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./customAddToCartButtonSifter */ "./src/js/customAddToCartButtonSifter.jsx");
-/* harmony import */ var _sifterDashBoard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sifterDashBoard */ "./src/js/sifterDashBoard.jsx");
+/* harmony import */ var _productPasswordGate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./productPasswordGate */ "./src/js/productPasswordGate.jsx");
+/* harmony import */ var _sifterDashBoard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./sifterDashBoard */ "./src/js/sifterDashBoard.jsx");
+
 
 
 
@@ -33088,7 +33152,11 @@ if (el) {
 document.addEventListener('DOMContentLoaded', function () {
   var el2 = document.getElementById('sifter-dashboard');
   if (el2) {
-    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(el2).render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_sifterDashBoard__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(el2).render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_sifterDashBoard__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+  }
+  var gateEl = document.getElementById('product-password-gate');
+  if (gateEl) {
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(gateEl).render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_productPasswordGate__WEBPACK_IMPORTED_MODULE_3__["default"], null));
   }
 });
 })();
