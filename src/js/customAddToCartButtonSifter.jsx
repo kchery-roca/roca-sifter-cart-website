@@ -289,7 +289,13 @@ const CustomAddToCartButtonSifter = () => {
           >
             TCGplayer seller account
           </a>
-          in order to operate a Roca Sifter.{' '}
+          in order to operate a Roca Sifter. . <br />{' '}
+          <i>
+            Please note: New seller registrations are temporarily paused but are scheduled to reopen
+            before Roca Sifters begin arriving. If you don’t already have a TCGplayer seller
+            account, we’ll email you when registration becomes available so you can create one
+            before your Roca Sifter arrives.
+          </i>
         </label>
       </div>
 

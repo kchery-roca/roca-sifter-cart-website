@@ -415,11 +415,12 @@
 <!-- End of rocarobotics Zendesk Widget script -->
 
   {% unless product.handle == 'roca-sifter-copy' %}
-    {% if template == 'index' or product.handle == shop.metafields.global.subscription_variant_id.value.handle %}
+    {% if template == 'index' or product.handle == shop.metafields.global.subscription_variant_id.value.handle or template == 'cart' %}
       <script>
         window.location.href = '/products/roca-sifter'
       </script>
     {% endif %}
+
   {% endunless %}
 
 </html>

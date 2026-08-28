@@ -31936,7 +31936,7 @@ var CustomAddToCartButtonSifter = function CustomAddToCartButtonSifter() {
     href: "https://store.tcgplayer.com/oauth/login/register",
     target: "_blank",
     className: "tw-text-[#0000ef] tw-mx-3"
-  }, "TCGplayer seller account"), "in order to operate a Roca Sifter.", ' ')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, "TCGplayer seller account"), "in order to operate a Roca Sifter.", ' ', ". ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", null, "Please note: New seller registrations are temporarily paused but are scheduled to reopen before Roca Sifters begin arriving. If you don\u2019t already have a TCGplayer seller account, we\u2019ll email you when registration becomes available so you can create one before your Roca Sifter arrives."))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "tw-flex tw-items-center tw-gap-2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
     className: validationError && !acceptTermsAndConditions ? 'tw-inline-flex tw-ring-2 tw-ring-red-500 tw-ring-offset-0 tw-rounded' : 'tw-inline-flex'
