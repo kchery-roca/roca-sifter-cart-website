@@ -247,12 +247,9 @@ const CustomAddToCartButtonSifter = () => {
   return (
     <div>
       <p className="tw-mb-2">
-        Available for purchase within U.S.{' '}
-        <i>
-          and Canada. Canadian orders may be subject to duties, taxes, and other import fees,
-          typically collected before delivery. Any applicable charges are the customer’s
-          responsibility.
-        </i>
+        Available for purchase within U.S. and Canada. Canadian orders may be subject to duties,
+        taxes, and other import fees, typically collected before delivery. Any applicable charges
+        are the customer’s responsibility.
       </p>
       <p className="tw-mb-4 ">
         <span className="tw-font-bold">Have questions?</span>{' '}
