@@ -1,3 +1,6 @@
+/*!******************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./src/css/tailwind.css ***!
+  \******************************************************************************************************************/
 .tw-fixed {
     position: fixed
 }
@@ -558,3 +561,5 @@
         text-align: center
     }
 }
+
+/*# sourceMappingURL=tailwind.css.map*/
