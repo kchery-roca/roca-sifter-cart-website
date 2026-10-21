@@ -380,13 +380,13 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-  </body>
+
     {% if product.handle == 'roca-sifter-copy' %}
       {%- assign roca_gate_hash = 'SifterPurchaseTesting2026!' | sha256 -%}
       <style>
         html.roca-gate-locked
           body
-          > *:not(#product-password-gate):not(#headlessui-portal-root):not([data-headlessui-portal]) {
+          > *:not(#product-password-gate):not(#forethought-chat):not(#headlessui-portal-root):not([data-headlessui-portal]) {
           display: none !important;
         }
       </style>
@@ -410,9 +410,22 @@
       </script>
     {% endif %}
 
-<!-- Start of rocarobotics Zendesk Widget script -->
-<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=232ff279-2b4b-4f1f-a541-81ffa4eb969d"> </script>
-<!-- End of rocarobotics Zendesk Widget script -->
+    <script>
+      window.forethoughtSettings = {
+        widget_id: 'forethought-widget-embed-script',
+        mode: 'overlay',
+        align: 'right',
+        showMinimized: true,
+        autoOpen: false,
+      };
+    </script>
+    <script
+      src="https://solve-widget.forethought.ai/embed.js"
+      id="forethought-widget-embed-script"
+      data-api-key="d36401a7-be8c-4a25-b876-cfc89d5b1def"
+      async
+    ></script>
+  </body>
 
   {% unless product.handle == 'roca-sifter-copy' %}
     {% if template == 'index' or product.handle == shop.metafields.global.subscription_variant_id.value.handle or template == 'cart' %}
