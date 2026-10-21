@@ -11,8 +11,33 @@ const CustomAddToCartButtonSifter = () => {
   const [isOrderConstraintModalOpen, setIsOrderConstraintModalOpen] = useState(false);
   const [remainingSifters, setRemainingSifters] = useState(0);
 
-  const openZendeskChat = () => {
-    zE('messenger', 'open');
+  const openSupportChat = (event) => {
+    event.preventDefault();
+
+    const openWidget = () => {
+      if (typeof window.Forethought !== 'function') {
+        return false;
+      }
+
+      window.Forethought('widget', 'open');
+      window.Forethought('widget', 'show');
+      return true;
+    };
+
+    if (openWidget()) {
+      return;
+    }
+
+    let attempts = 0;
+    const waitForForethought = setInterval(() => {
+      attempts += 1;
+      if (openWidget() || attempts >= 40) {
+        clearInterval(waitForForethought);
+        if (attempts >= 40) {
+          console.warn('Forethought support widget failed to load.');
+        }
+      }
+    }, 250);
   };
 
   // When the cart updates, check if it's empty and inject the empty state into the drawer
@@ -253,7 +278,7 @@ const CustomAddToCartButtonSifter = () => {
       </p>
       <p className="tw-mb-4 ">
         <span className="tw-font-bold">Have questions?</span>{' '}
-        <a href="#" onClick={openZendeskChat}>
+        <a href="#" onClick={openSupportChat}>
           Contact Us
         </a>
       </p>
